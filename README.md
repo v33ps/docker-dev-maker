@@ -11,21 +11,22 @@ Each docker image is either based off of alpine linux, or debian7.11-slim so it'
 ## Shell Aliases
 Just run the appropriate language alias. For instance if you're working on a c program, run `c-build`.
 If you're using bash instead of `fish` for your shell, change `src=(pwd)` to something like `src=$(pwd)`
-C
+
+### C
 ```
 function c-build
     docker run -i -t --mount src=(pwd),target=/code,type=bind --rm c-container ./build.sh
 end
 ```
 
-Python
+### Python
 ```
 function python-build
     docker run -it --mount src=(pwd),target=/code,type=bind --rm python-container sh build.sh
 end
 ```
 
-Golang
+### Golang
 ```
 function golang-build
     docker run -it --mount src=(pwd),target=/code,type=bind --rm golang-container sh build.sh
@@ -33,4 +34,4 @@ end
 ```
 
 
-Also yes the golang Dockerfile is gross, sorrynotsorry
+*Also yes the golang Dockerfile is gross, sorrynotsorry*
